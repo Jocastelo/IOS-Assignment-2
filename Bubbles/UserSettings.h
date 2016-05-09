@@ -10,6 +10,13 @@
 
 @interface UserSettings : NSObject
 
-+(int)getTimesegment:(NSString*)time;
+
 -(void)initSettings;
+-(int)getTimesegment:(NSString*)time;
+-(NSString*) getTimeSettings;
+-(NSString*) getBubbluesSettings;
+-(void) setBubbluesSettings: (NSString*) new_settings;
+-(void) setTimeSettings: (NSString*) new_settings;
+
+
 @end

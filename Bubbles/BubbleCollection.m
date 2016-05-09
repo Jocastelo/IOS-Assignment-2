@@ -36,31 +36,11 @@
     [BubbleCollection sendNotificantion:@"ADD_BUBBLES" withObj:self.myBubbles];
     return self;
 }
-+(NSMutableArray*) RemoveBubbles: (Bubble *) bubble in: (NSMutableArray *) my_array{
-    [my_array removeObjectIdenticalTo: bubble];
-    [BubbleCollection sendNotificantion:@"REMOVE_BUBBLE" withObj:bubble];
-    return my_array;
-}
-/*
--(instancetype) initWithBubbles: (NSUInteger) max_Bubbles{
-    int random;
-    for(int i =0; i < max_Bubbles; i++){
-        random = (arc4random() % 100) + 1;
-        [self.myBubbles addObject: [Bubble createRandomBubble:random]];
-    }
-    self.score = 0;
-    
-    return self;
-}
-*
-+(NSMutableArray*)CreateBubbles: (int) maxBubble withFrameX: (float) Max_widht withFrameY: (float) Max_height{
-    NSMutableArray * myBubbles = [[NSMutableArray alloc] init];
-    for(int i =0; i < maxBubble; i++){
-        [myBubbles addObject: [Bubble createRandomBubble:Max_widht withHeight:Max_height]];
-    }
-    return myBubbles;
-}
-*/
+
+/*Function isOverlapping 
+ *Input: Bubble and MutableArray
+ *Output: True if bubble overlap with other in array. False otherwise
+ */
 
 +(BOOL)isOverlapping: (Bubble *) new_bubble CompareInArray: (NSMutableArray *) bubbles_array{
     if([bubbles_array count] == 0){
@@ -71,8 +51,7 @@
         for(int i = 0; i < [bubbles_array count]; i++){
             b = [bubbles_array objectAtIndex:i];
             if(( (new_bubble.position_x < (b.position_x+widthBubble))) && (new_bubble.position_x > (b.position_x-widthBubble))){
-                if((int) new_bubble.position_y < (int) (b.position_y+heightBubble) && (int) new_bubble.position_y > (int) (b.position_y-heightBubble)){
-                    //NSLog(@"N_x = %f N_y = %f O_x %f O_y %f", new_bubble.position_x, new_bubble.position_y, b.position_x, b.position_y);
+                if((int) new_bubble.position_y < (int) (b.position_y+heightBubble) && (int) new_bubble.position_y > (int) (b.position_y-heightBubble)){;
                     return true;
                 }
             }
@@ -80,11 +59,17 @@
     }
     return false;
 }
+
+
+/*Function CreateBubbles
+ *Input: Maximo number of bubbles in the screen, Frame size (widht and height)
+ *Output: Array of bubbles
+ */
 +(NSMutableArray*)CreateBubbles: (int) maxBubble withFrameX: (float) Max_widht withFrameY: (float) Max_height{
     NSMutableArray * myBubbles = [[NSMutableArray alloc] init];
     for(int i =0; i < maxBubble; i++){
         Bubble* new_bubble = [Bubble createRandomBubble:Max_widht withFrame_Height: Max_height];
-        if([BubbleCollection isOverlapping:new_bubble CompareInArray:myBubbles])
+        if([BubbleCollection isOverlapping:new_bubble CompareInArray:myBubbles])// if new_bubble overlap, other bubble will be generate for the position
             i--;
         else
         [myBubbles addObject: new_bubble];
@@ -93,20 +78,21 @@
     return myBubbles;
 }
 
-+(void)PrintArray: (NSMutableArray *) myArray{
-    int count = (int) [myArray count];
-    NSLog(@"Array com %d elements",count);
-    Bubble* b = [[Bubble alloc] init];
-    
-    for(int i=0; i <count; i++){
-        b = [myArray objectAtIndex: i];
-        NSLog(@"Bubble %d color %@ x %f y %f ",i, b.typeBubble, b.position_x, b.position_y);
-    }
-}
+
+/*Function sendNotification
+ *Input: type of notification and NSObject
+ *Description: Warning the Gamecontroller about changes in the GUI.
+ */
 
 +(void)sendNotificantion: (NSString*) type_notification withObj: (NSObject*) obj{
     [[NSNotificationCenter defaultCenter] postNotificationName:type_notification object:obj];
 }
+
+
+/*Function ChangeBubbles
+ *Input: Array of bubble, max bubbles, frame size
+ *Description: Delete and add bubbles aleatory in the array and notify the controller
+ */
 
 +(void)ChangeBubbles: (NSMutableArray *) bubbles withMAXBubbles: (int) maxbubbles withFramewidht: (float) Max_widht withFrameheight: (float) Max_height{
     NSMutableArray* new_array = [[NSMutableArray alloc] init];
@@ -133,5 +119,16 @@
     [BubbleCollection sendNotificantion:@"ADD_BUBBLES" withObj:new_array]; // send the array content only the new bubbles.
     
 }
+
+/*Function RemoveBubbles
+ *Input: bubble and Array of bubbles
+ *Output: delete bubbles aleatory and send a new array of bubbles.
+ */
++(NSMutableArray*) RemoveBubbles: (Bubble *) bubble in: (NSMutableArray *) my_array{
+    [my_array removeObjectIdenticalTo: bubble];
+    [BubbleCollection sendNotificantion:@"REMOVE_BUBBLE" withObj:bubble];
+    return my_array;
+}
+
 
 @end

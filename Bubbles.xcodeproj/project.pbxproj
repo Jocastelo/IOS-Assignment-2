@@ -24,7 +24,6 @@
 		579BA6F21CCE283800EDDA23 /* BubbleCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 579BA6F11CCE283800EDDA23 /* BubbleCollection.m */; };
 		57ABEBF91CDF18780099DF83 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ABEBF81CDF18780099DF83 /* User.m */; };
 		57ABEBFC1CDF52AB0099DF83 /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ABEBFB1CDF52AB0099DF83 /* RecordController.m */; };
-		57ABEBFE1CDF71DE0099DF83 /* record.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57ABEBFD1CDF71DE0099DF83 /* record.plist */; };
 		57EBF6C81CD2047B00DAA355 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF6C71CD2047B00DAA355 /* SettingsController.m */; };
 		57FC9E5C1CCB62A90074FE71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FC9E5B1CCB62A90074FE71 /* main.m */; };
 		57FC9E5F1CCB62A90074FE71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FC9E5E1CCB62A90074FE71 /* AppDelegate.m */; };
@@ -77,7 +76,6 @@
 		57ABEBF81CDF18780099DF83 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		57ABEBFA1CDF52AB0099DF83 /* RecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
 		57ABEBFB1CDF52AB0099DF83 /* RecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordController.m; sourceTree = "<group>"; };
-		57ABEBFD1CDF71DE0099DF83 /* record.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = record.plist; path = ../record.plist; sourceTree = "<group>"; };
 		57EBF6C61CD2047B00DAA355 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		57EBF6C71CD2047B00DAA355 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		57FC9E571CCB62A90074FE71 /* Bubbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +200,6 @@
 				57FC9E631CCB62A90074FE71 /* Main.storyboard */,
 				57FC9E661CCB62A90074FE71 /* Assets.xcassets */,
 				57FC9E681CCB62A90074FE71 /* LaunchScreen.storyboard */,
-				57ABEBFD1CDF71DE0099DF83 /* record.plist */,
 				57FC9E6B1CCB62A90074FE71 /* Info.plist */,
 				57FC9E5A1CCB62A90074FE71 /* Supporting Files */,
 			);
@@ -352,7 +349,6 @@
 				578B813B1CD8465000904AEF /* settings.png in Resources */,
 				578B81291CD4CCB100904AEF /* blue_bubble.png in Resources */,
 				578B81281CD4CCB100904AEF /* red_bubble.png in Resources */,
-				57ABEBFE1CDF71DE0099DF83 /* record.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,7 @@
 @interface RecordController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *RecordLabel;
 @property (weak, nonatomic) IBOutlet UILabel *first_name;
-@property (weak, nonatomic) IBOutlet UILabel *second_name;
-@property (weak, nonatomic) IBOutlet UILabel *third_name;
 @property (weak, nonatomic) IBOutlet UILabel *first_score;
-@property (weak, nonatomic) IBOutlet UILabel *second_score;
-@property (weak, nonatomic) IBOutlet UILabel *third_score;
 
 @property User* user;
 @property NSMutableArray *best_players;

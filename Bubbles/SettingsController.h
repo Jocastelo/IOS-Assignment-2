@@ -10,4 +10,5 @@
 #import "UserSettings.h"
 @interface SettingsController : UIViewController
 @property UserSettings* settings;
+
 @end

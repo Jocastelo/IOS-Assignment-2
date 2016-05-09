@@ -9,13 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Bubble.h"
 
-
 @interface BubbleCollection : NSObject
 
-//-(instancetype) initWithBubbles:
+-(instancetype) initWithBubbles: (int) maxBubble withFrameX: (float) Max_widht withFrameY: (float) Max_height;
 +(NSMutableArray*)CreateBubbles: (int) maxBubble withFrameX: (float) Max_widht withFrameY: (float) Max_height;
 +(NSMutableArray*) RemoveBubbles: (Bubble *) bubble in: (NSMutableArray *) my_array;
-+(void)PrintArray: (NSArray *) myArray;
 +(void)ChangeBubbles:(NSMutableArray *) bubbles withMAXBubbles: (int) maxbubbles withFramewidht: (float) Max_widht withFrameheight: (float) Max_height;
--(instancetype) initWithBubbles: (int) maxBubble withFrameX: (float) Max_widht withFrameY: (float) Max_height;
 @end

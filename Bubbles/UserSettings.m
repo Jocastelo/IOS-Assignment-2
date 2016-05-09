@@ -10,30 +10,6 @@
 
 @implementation UserSettings
 
--(int) getBubbluesSettings{
-    NSString* num_bubbles = [[NSUserDefaults standardUserDefaults] valueForKey:@"settings_bubbles"];
-    int bubbles_settings = (int)[num_bubbles integerValue];
-    return bubbles_settings;
-}
-
--(int) getTimeSettings{
-    NSString* time = [[NSUserDefaults standardUserDefaults] valueForKey:@"settings_time"];
-    int time_settings = (int)[time integerValue];
-    return time_settings;
-}
-
--(void) setBubbluesSettings: (int) new_settings{
-    NSString* num_bubbles;
-    num_bubbles = [NSString stringWithFormat:@"%i", new_settings];
-    [[NSUserDefaults standardUserDefaults] setValue:num_bubbles forKey:@"settings_bubbles"];
-}
-
--(void) setTimeSettings: (int) new_settings{
-    NSString* time;
-    time = [NSString stringWithFormat:@"%i", new_settings];
-    [[NSUserDefaults standardUserDefaults] setValue:time forKey:@"settings_time"];
-}
-
 -(void)initSettings{
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"settings_time"] == nil){
         [[NSUserDefaults standardUserDefaults] setValue:@"60" forKey:@"settings_time"];
@@ -46,7 +22,8 @@
     
 }
 
-+(int)getTimesegment: (NSString*)time{
+/* Return the segment of timer's segement control*/
+-(int)getTimesegment: (NSString*)time{
     
     int segment_time = 0;
     
@@ -65,6 +42,28 @@
     
     return segment_time;
 }
+
+-(NSString*) getTimeSettings{
+    NSString* time = [[NSUserDefaults standardUserDefaults] valueForKey:@"settings_time"];
+    return time;
+}
+
+-(NSString*) getBubbluesSettings{
+    NSString* num_bubbles = [[NSUserDefaults standardUserDefaults] valueForKey:@"settings_bubbles"];
+    return num_bubbles;
+}
+
+-(void) setBubbluesSettings: (NSString*) new_settings{
+    [[NSUserDefaults standardUserDefaults] setValue:new_settings forKey:@"settings_bubbles"];
+}
+
+-(void) setTimeSettings: (NSString*) new_settings{
+    [[NSUserDefaults standardUserDefaults] setValue:new_settings forKey:@"settings_time"];
+}
+
+
+
+
 
 
 @end

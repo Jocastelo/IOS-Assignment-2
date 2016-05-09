@@ -32,29 +32,37 @@
 }
 
 
-
+/*Function LoadSettingsInformation
+ *Description: Load the settings information. If the settings information = nil, the function will initialize with the default values
+ */
 - (void)LoadSettingsInformation{
    
-    NSString* num_bubbles = [[NSUserDefaults standardUserDefaults] valueForKey:@"settings_bubbles"];
+    NSString* num_bubbles = [self.settings getBubbluesSettings];
     self.bubbles_label.text = num_bubbles;
     self.bubbles_option.value = (float) [num_bubbles integerValue];
     
-    int timer_segment = [UserSettings getTimesegment:[[NSUserDefaults standardUserDefaults] valueForKey:@"settings_time"]];
+    int timer_segment = [self.settings getTimesegment:[[NSUserDefaults standardUserDefaults] valueForKey:@"settings_time"]];
     [self.timer_options setSelectedSegmentIndex:timer_segment];
 }
 
+/*Return for the previously screen*/
 - (IBAction)SaveSettings:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+/*Set time settings*/
 - (IBAction)ChooseTimer:(id)sender {
     UISegmentedControl* timer_control = (UISegmentedControl*) sender;
     NSString* string_timer = [timer_control titleForSegmentAtIndex:[timer_control selectedSegmentIndex]];
-    [[NSUserDefaults standardUserDefaults] setValue:string_timer forKey:@"settings_time"];
+    [self.settings setTimeSettings:string_timer];
 }
+
+/*Set bubbles settings*/
 - (IBAction)ChooseBubbles:(id)sender {
     UISlider* slider = (UISlider *) sender;
     self.bubbles_label.text = [NSString stringWithFormat:@"%d", (int) slider.value];
-    [[NSUserDefaults standardUserDefaults] setValue:self.bubbles_label.text forKey:@"settings_bubbles"];
+    [self.settings setBubbluesSettings:self.bubbles_label.text];
+    //[[NSUserDefaults standardUserDefaults] setValue:self.bubbles_label.text forKey:@"settings_bubbles"];
 }
 /*
 #pragma mark - Navigation

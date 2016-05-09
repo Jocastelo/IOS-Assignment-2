@@ -13,8 +13,6 @@
 @property NSString* userscore;
 
 -(instancetype) initUser;
-+(instancetype) initUserWith:(NSString*) name andScore: (NSString*) score;
-- (id)initWithCoder:(NSCoder *)decoder;
-- (void)saveData;
+
 
 @end

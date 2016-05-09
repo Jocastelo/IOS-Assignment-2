@@ -10,6 +10,10 @@
 
 @implementation Bubble
 
+/*Function initBubble
+ *Input: Type if the bubble, points and position
+ *Output: new bubble.
+ */
 -(Bubble *) initBubble:(NSString *)type with:(short)point withX: (float) position_X withY: (float) posistion_Y{
     self = [super init];
     if(self){
@@ -42,13 +46,19 @@
     return self;
 }
 
-/*
- Create a random Bubble with a random position
-*/
+/*Function randomNumberBetween
+ *Input: min and max
+ *Output: a number between min and max.
+ */
 +(float) randomNumberBetween: (int) min and: (int) max{
     float random_number = (float) (min + arc4random_uniform(max));
     return random_number;
 }
+
+/*Function createRandomBubble
+ *Input: Frame size
+ *Output: create a random bubble
+ */
 +(Bubble *) createRandomBubble: (float) Frame_widht withFrame_Height: (float) Frame_height{
     int random_number = (arc4random() % 100) + 1;
     float random_posX = (float) ((arc4random() % (int)(Frame_widht - 1.5*widthBubble)));

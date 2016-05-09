@@ -15,15 +15,22 @@
 @implementation RecordController
 
 @synthesize user;
+
 - (void)viewDidLoad {
     [self initRecordView];
     [self showBest];
     //[self.user saveData];   // Do any additional setup after loading the view.
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 -(void) showBest{
     NSString * player_name = [[NSUserDefaults standardUserDefaults] objectForKey: @"first_player_name"];
     NSString * player_score = [[NSUserDefaults standardUserDefaults] objectForKey:@"first_player_score"];
-    if(player_name == nil){
+    if(player_name == nil || [self.user.userscore integerValue] > [player_score integerValue]){
         [[NSUserDefaults standardUserDefaults] setObject:self.user.username  forKey:@"first_player_name"];
         [[NSUserDefaults standardUserDefaults] setObject:self.user.userscore forKey:@"first_player_score"];
         self.first_name.text = self.user.username;
@@ -32,19 +39,14 @@
     else{
         self.first_name.text = player_name;
         self.first_score.text = player_score;
-        NSLog(@"I am here");
     }
 }
+
 
 -(void)initRecordView{
     [super viewDidLoad];
      if(self.best_players == nil)
          self.best_players = [[NSMutableArray alloc] init];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
