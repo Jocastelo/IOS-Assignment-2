@@ -375,7 +375,6 @@
                         <outlet property="bubbles_option" destination="7of-51-Cou" id="lPP-x3-SGR"/>
                         <outlet property="save_button" destination="Ts0-GU-XW9" id="DdZ-Bc-Ckj"/>
                         <outlet property="timer_options" destination="emo-fz-4Vy" id="cHb-gK-EVU"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="home_screen" id="Oph-Gr-YoB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkK-CX-eCL" userLabel="First Responder" sceneMemberID="firstResponder"/>

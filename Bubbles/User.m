@@ -21,6 +21,17 @@
     return self;
 }
 
++(instancetype) initUserWith:(NSString*) name andScore: (NSString*) score{
+    User* user = [[User alloc] init];
+    
+    if(user){
+        user.username = name;
+        user.userscore = score;
+        return user;
+    }
+    return user;
+}
+
 -(void) encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.username forKey:@"Name"];
     [aCoder encodeObject:self.userscore forKey:@"Score"];

@@ -7,7 +7,6 @@
 //
 
 #import "SettingsController.h"
-#import "GameController.h"
 
 @interface SettingsController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *timer_options;
@@ -44,16 +43,8 @@
     [self.timer_options setSelectedSegmentIndex:timer_segment];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"game"]){
-        GameController* game = [segue destinationViewController];
-        game.settings = self.settings;
-        
-    }
-}
-
 - (IBAction)SaveSettings:(id)sender {
-    [self performSegueWithIdentifier:@"home_screen" sender:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)ChooseTimer:(id)sender {
     UISegmentedControl* timer_control = (UISegmentedControl*) sender;

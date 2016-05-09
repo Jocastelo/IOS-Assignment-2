@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *third_score;
 
 @property User* user;
+@property NSMutableArray *best_players;
 @end
